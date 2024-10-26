@@ -35,7 +35,7 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "emqx-consum-13"
-          entrypoint: "services/mqtt.service.js"
+          entrypoint: "/src/services/mqtt.service.js"
           root: ""
           
           

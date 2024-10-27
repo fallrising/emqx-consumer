@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  mqtt-consumer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mqtt-consumer
+    restart: unless-stopped
+    env_file: .env
+    networks:
+      - mqtt-net
+    # If you need to connect to a local MQTT broker
+    # depends_on:
+    #   - mqtt-broker
+
+  # Uncomment below if you want to run a local MQTT broker
+  # mqtt-broker:
+  #   image: emqx/emqx:latest
+  #   container_name: mqtt-broker
+  #   ports:
+  #     - "1883:1883"  # MQTT port
+  #     - "8083:8083"  # MQTT/WebSocket port
+  #     - "18083:18083"  # Dashboard port
+  #   networks:
+  #     - mqtt-net
+  #   volumes:
+  #     - emqx-data:/opt/emqx/data
+  #     - emqx-logs:/opt/emqx/log
+
+networks:
+  mqtt-net:
+    driver: bridge
+
+# Uncomment if using local MQTT broker
+# volumes:
+#   emqx-data:
+#   emqx-logs:

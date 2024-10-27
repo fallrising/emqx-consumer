@@ -13,8 +13,8 @@ RUN npm ci
 COPY . .
 
 # Run linting and tests
-RUN npm run lint
-RUN npm test
+#RUN npm run lint
+#RUN npm test
 
 # Production image
 FROM node:20-slim

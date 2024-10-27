@@ -30,7 +30,7 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "chengkungch-emqx-consum-90"
-          entrypoint: "/src/index.js"
+          entrypoint: "/emqx-consumer/src/index.js"
           root: ""
           
           
